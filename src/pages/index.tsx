@@ -3,6 +3,8 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
 import ResponsiveAppBar from "./CustomComponents/Navbar";
+import Box from '@mui/material/Box';
+import Banner from "./CustomComponents/Banner"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,6 +26,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <ResponsiveAppBar></ResponsiveAppBar>
+      <Banner mainImg="/dandadanMain.jpg" logo="/dandadanLogo.png"></Banner>
     </>
   );
 }

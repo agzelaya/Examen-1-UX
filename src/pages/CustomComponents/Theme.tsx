@@ -28,18 +28,27 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          boxShadow: 'none',
-          outline: 'none',
-          '&:focus': {
             boxShadow: 'none',
             outline: 'none',
-          },
-          '&:hover': {
-            boxShadow: 'none',
-          },
-          '&:active': {
-            fontWeight: 'bold',
-          },
+            '&:active': {
+                fontWeight: 'bold',
+                outline: 'none',
+                boxShadow: 'none',
+            },
+            '&:focus': {
+                fontWeight: 'bold',
+                outline: 'none',
+                boxShadow: 'none',
+            },
+            '&:hover': {
+                fontWeight: 'bold',
+                outline: 'none',
+                boxShadow: 'none',
+            },
+            '&:focus-visible': {
+                outline: 'none',
+                boxShadow: 'none',
+            },
         },
       },
     },

@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import SearchIcon from '@mui/icons-material/Search';
-
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const pages = ['Home', 'TV Shows', 'Movies','New & Popular', 'My List','Browse by Languages'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -38,7 +38,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#141414' }}>
+    <AppBar  sx={{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))', 
+      boxShadow:'none', zIndex: 100, 
+      position: 'absolute'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {
@@ -81,37 +83,18 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
           {
-            //right side icons go here
           }
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'} }}>
             {pages.map((page) => (
               <Button
                 variant="text"
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', textTransform:'capitalize',
+                sx={{ my: 2, color: 'white', display: 'block', textTransform:'none',
                   boxShadow: 'none',
                   outline: 'none',
                   fontWeight: 'normal',
-                  '&:active': {
-                    fontWeight: 'bold',
-                    outline: 'none',
-                    boxShadow: 'none',
-                  },
-                  '&:focus': {
-                    fontWeight: 'bold',
-                    outline: 'none',
-                    boxShadow: 'none',
-                  },
-                  '&:hover': {
-                    fontWeight: 'bold',
-                    outline: 'none',
-                    boxShadow: 'none',
-                  },
-                  '&:focus-visible': {
-                    outline: 'none',
-                    boxShadow: 'none', 
-                  },
+                  
                   typography:{
                     fontSize: '14px',
                   }
@@ -122,27 +105,47 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, gap: 1 }}>
+
           <Tooltip title="Search">
-              <IconButton color="inherit" sx={{ mr: 2 }}>
+              <IconButton color="inherit" sx={{ p:0}}>
                 <SearchIcon />
+              </IconButton>
+            </Tooltip>
+
+            <Button
+                variant="text"
+                sx={{color: 'white', textTransform:'none',
+                  boxShadow: 'none',
+                  outline: 'none',
+                  p:0,
+                  
+                  typography:{
+                    fontSize: '13px',
+                  }
+                }}
+                disableRipple
+              >
+                Kids
+              </Button>
+            
+
+            <Tooltip title="Notifications">
+              <IconButton color="inherit" sx={{ p:0 , mr:2}}>
+                <NotificationsNoneIcon />
               </IconButton>
             </Tooltip>
             
 
-            <Tooltip title="Notifications">
-              <IconButton color="inherit" sx={{ mr: 2 }}>
-                <NotificationsNoneIcon />
-              </IconButton>
-            </Tooltip>
+            
 
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ width: 40, height: 40 }} />
+              <IconButton  sx={{ p: 0, mr: 1}}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ width: 35, height: 35 , borderRadius: '3px'}} />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px', p: 0, width: 'auto', maxWidth: '250px'}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -161,8 +164,16 @@ function ResponsiveAppBar() {
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography sx={{ textAlign: 'center', color:'white'}}>{setting}</Typography>
                 </MenuItem>
+              //onClick={handleOpenUserMenu} 
               ))}
+
             </Menu>
+
+            <Tooltip title="Open settings">
+                <IconButton  color="inherit" sx={{p:0 }}>
+                  <ArrowDropDownIcon />
+                </IconButton>
+              </Tooltip>
           </Box>
         </Toolbar>
       </Container>
