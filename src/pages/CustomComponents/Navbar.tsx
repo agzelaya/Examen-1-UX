@@ -170,7 +170,7 @@ function ResponsiveAppBar() {
             </Menu>
 
             <Tooltip title="Open settings">
-                <IconButton  color="inherit" sx={{p:0 }}>
+                <IconButton  onClick={handleOpenUserMenu} color="inherit" sx={{p:0 }}>
                   <ArrowDropDownIcon />
                 </IconButton>
               </Tooltip>
