@@ -70,6 +70,9 @@ const Banner =({mainImg, logo, description}:BannerInfo) => {
                     fontSize: 'calc(4px + 1vw)', 
                     '@media (max-width: 768px)': {
                         fontSize: 'calc(4px + 1vw)',
+                    },
+                    '@media (max-width: 450px)': {
+                        my:1
                     }
                         }}>
                     {description}
