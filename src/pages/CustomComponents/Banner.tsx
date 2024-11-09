@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ReplayIcon from '@mui/icons-material/Replay';
+import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
 import { AutocompleteClasses } from '@mui/material';
 
 interface BannerInfo{
@@ -147,8 +148,8 @@ const Banner =({mainImg, logo, description}:BannerInfo) => {
                     border: '1px solid white', borderRadius: '50%', mr: 1.5, display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: '2.75vw',
-                    height: '2.75vw', 
+                    width: '2.55vw',
+                    height: '2.55vw', 
                     '@media (max-width: 768px)': {
                         width: '2vw', 
                         height: '2vw',
@@ -160,9 +161,9 @@ const Banner =({mainImg, logo, description}:BannerInfo) => {
                         mr: '0.5vw', 
                     },
                 }}>
-                    <ReplayIcon sx={{
+                    <VolumeUpOutlinedIcon sx={{
                         my:0,
-                        fontSize: 'calc(3px + 2vw)', 
+                        fontSize: 'calc(2px + 1.5vw)', 
                         '@media (max-width: 768px)': {
                             fontSize: 'calc(1px + 2vw)', 
                         },
