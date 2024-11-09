@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ReplayIcon from '@mui/icons-material/Replay';
-import { autocompleteClasses } from '@mui/material';
+import { AutocompleteClasses } from '@mui/material';
 
 interface BannerInfo{
     mainImg: string;
@@ -12,10 +12,10 @@ interface BannerInfo{
     description: string;
 }
 
-const Banner =({mainImg,logo, description}:BannerInfo) => {
+const Banner =({mainImg, logo, description}:BannerInfo) => {
     return (
         <Box sx={{
-            backgroundImage: `url(${mainImg})`,
+            backgroundImage: `linear-gradient(to bottom, transparent 60%, #141414), url(${mainImg})`,
             backgroundPosition: 'top',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
@@ -30,7 +30,7 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
             //pantalla de laptop
             '@media (min-width: 1000px)': {
                 justifyContent: 'flex-start',
-                paddingTop: '18vh', 
+                paddingTop: '16vh', 
                 alignItems: 'flex-start',
             },
         }}>
@@ -59,7 +59,7 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
                     left: '4%',
                 },
             }}>
-                <img src={logo} alt="Series logo" style={{ maxWidth: '20vw', height: 'auto'}}/>
+                <img src={logo} alt="Series logo" style={{ maxWidth: '17vw', height: 'auto'}}/>
 
                 <Box sx={{
                         display:'flex',
@@ -133,7 +133,7 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
                 right: 0,
 
                 '@media (min-width: 1000px)': {
-                    top: '58%'
+                    top: '52%'
                 },
                 
             }}>
@@ -159,7 +159,7 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
                 }}>
                     <ReplayIcon sx={{
                         my:0,
-                        fontSize: 'calc(4px + 2vw)', 
+                        fontSize: 'calc(3px + 2vw)', 
                         '@media (max-width: 768px)': {
                             fontSize: 'calc(1px + 2vw)', 
                         },

@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import  {useState, useEffect} from "react"
 
 const pages = ['Home', 'TV Shows', 'Movies','New & Popular', 'My List','Browse by Languages'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,16 +38,41 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <AppBar  sx={{ background: 'linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))', 
+    <AppBar  sx={{ 
+      position: scrolled?'fixed':'absolute',
+      background: 'linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))', 
       boxShadow:'none', zIndex: 100, 
-      position: 'absolute'}}>
-      <Container maxWidth="xl">
+      width: '100%',
+      left:0, right:0
+    }}>
+      <Container maxWidth="xl" sx={{background: scrolled?'#141414':'transparent',transition: 'background-color 0.5s ease-in-out', width:'100%', left:0, right:0}}>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {
-           <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
-           <img src="/netflixlogo.png" alt="Logo" style={{ height: '60px' }} />
-         </Box>}
+            <Box sx={{ display: 'flex', alignItems: 'center', mr: 2,
+              width: { xs: '70px', sm: '80px', md: '90px', lg: '100px' }, 
+              height: 'auto',
+              p:0
+             }}>
+              <img src="/netflixlogo.png" alt="Logo" style={{ width: '100%' }} />
+            </Box>}
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -107,8 +133,13 @@ function ResponsiveAppBar() {
           </Box>
           <Box sx={{ flexGrow: 0, gap: 1 }}>
 
-          <Tooltip title="Search">
-              <IconButton color="inherit" sx={{ p:0}}>
+            <Tooltip title="Search">
+              <IconButton color="inherit" sx={{
+                p: 0,
+                '@media (max-width: 275px)': {
+                  display: 'none',
+                }
+              }}>
                 <SearchIcon />
               </IconButton>
             </Tooltip>
@@ -119,7 +150,7 @@ function ResponsiveAppBar() {
                   boxShadow: 'none',
                   outline: 'none',
                   p:0,
-                  
+                  display: { xs: 'none', md:'inline-flex'},
                   typography:{
                     fontSize: '13px',
                   }
@@ -131,7 +162,9 @@ function ResponsiveAppBar() {
             
 
             <Tooltip title="Notifications">
-              <IconButton color="inherit" sx={{ p:0 , mr:2}}>
+              <IconButton color="inherit" sx={{ p:0 , mr:2, ml:1, '@media (max-width: 244px)': {
+                  display: 'none',
+                }}}>
                 <NotificationsNoneIcon />
               </IconButton>
             </Tooltip>
@@ -139,11 +172,12 @@ function ResponsiveAppBar() {
 
             
 
-            <Tooltip title="Open settings">
-              <IconButton  sx={{ p: 0, mr: 1}}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" sx={{ width: 35, height: 35 , borderRadius: '3px'}} />
+            <Tooltip title="Profile">
+              <IconButton  sx={{ p: 0, mr: 1 }}>
+                <Avatar alt="Remy Sharp" src="/avatar.jpg" sx={{ borderRadius: '3px', width: { xs: '20px', sm: '20px', md: '35px', lg: '35px' }, height: 'auto' }} />
               </IconButton>
             </Tooltip>
+
             <Menu
               sx={{ mt: '45px', p: 0, width: 'auto', maxWidth: '250px'}}
               id="menu-appbar"
@@ -166,14 +200,14 @@ function ResponsiveAppBar() {
                 </MenuItem>
               //onClick={handleOpenUserMenu} 
               ))}
-
             </Menu>
 
             <Tooltip title="Open settings">
-                <IconButton  onClick={handleOpenUserMenu} color="inherit" sx={{p:0 }}>
+                <IconButton  color="inherit" sx={{p:0, display: { xs: 'none', md:'inline-flex'} } }>
                   <ArrowDropDownIcon />
                 </IconButton>
               </Tooltip>
+
           </Box>
         </Toolbar>
       </Container>
