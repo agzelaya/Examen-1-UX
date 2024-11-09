@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ReplayIcon from '@mui/icons-material/Replay';
+import { autocompleteClasses } from '@mui/material';
 
 interface BannerInfo{
     mainImg: string;
@@ -15,12 +16,23 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
     return (
         <Box sx={{
             backgroundImage: `url(${mainImg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'top',
             backgroundRepeat: 'no-repeat',
-            height: '100vh',
+            backgroundSize: 'cover',
             width: '100%',
-            position: 'relative'
+            aspectRatio: '16 / 9',
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center', 
+            alignItems: 'flex-start', 
+        
+            //pantalla de laptop
+            '@media (min-width: 1000px)': {
+                justifyContent: 'flex-start',
+                paddingTop: '18vh', 
+                alignItems: 'flex-start',
+            },
         }}>
             
             <Box
@@ -36,24 +48,29 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
                 }}
             />
 
-            <Box sx={{
+            <Box id="leftBox" sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                position: 'absolute',
-                top: '50%', 
-                left: '0', 
-                transform: 'translateY(-50%)', 
-                zIndex: 1, 
-                ml:6
+                position: 'relative', 
+                left: '5%',  
+                zIndex: 1,
+                width:'fit-content',
+                '@media (max-width: 1150px)': {
+                    left: '4%',
+                },
             }}>
-                <img src={logo} alt="Series logo" style={{ maxWidth: '250px', height: 'auto'}}/>
+                <img src={logo} alt="Series logo" style={{ maxWidth: '20vw', height: 'auto'}}/>
 
                 <Box sx={{
                         display:'flex',
                         flexDirection:'row', textTransform:'none', 
-                        width:'550px', 
+                        width:'40vw', 
                         my:3,
-                        fontWeight: '530'
+                        fontWeight: '500',
+                    fontSize: 'calc(4px + 1vw)', 
+                    '@media (max-width: 768px)': {
+                        fontSize: 'calc(4px + 1vw)',
+                    }
                         }}>
                     {description}
                 </Box>
@@ -72,9 +89,16 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
                         justifyContent: 'center', 
                         gap: 0.5,
                         fontSize: '17px',
-                        my: 1
+                        py: 0.25,
+                        '@media (max-width: 768px)': {
+                            fontSize: 'calc(4px + 1vw)',
+                        },
                     }}>
-                        <PlayArrowIcon sx={{ fontSize: 40 , m: '0 0 0 -8px', p:0}}/>
+                        <PlayArrowIcon sx={{
+                            fontSize: 40, m: '0 0 0 -8px', p: 0, '@media (max-width: 768px)': {
+                                fontSize: 'calc(8px + 1vw)',
+                            },
+                        }} />
                         Play
                     </Button>
                     <Button variant="contained" 
@@ -87,38 +111,77 @@ const Banner =({mainImg,logo, description}:BannerInfo) => {
                             justifyContent: 'center', 
                             gap: 1,
                             fontSize: '17px',
-                            my: 1
+                            py: 0.25,
+                            '@media (max-width: 768px)': {
+                            fontSize: 'calc(4px + 1vw)',
+                        },
                         }}>
-                        <InfoOutlinedIcon sx={{ fontSize: 35 }}/>
+                        <InfoOutlinedIcon sx={{ fontSize: 35, '@media (max-width: 768px)': {
+                            fontSize: 'calc(8px + 1vw)',
+                        },
+                         }}/>
                         More Info
                     </Button>
                 </Box>
                 
             </Box>
 
-            <Box sx={{
-                position: 'fixed',
+            <Box id= "rightBox" sx={{
+                position: 'absolute',
                 display: 'flex',
                 top: '77%',
                 right: 0,
+
+                '@media (min-width: 1000px)': {
+                    top: '58%'
+                },
+                
             }}>
                 {
                         //cajita de la derecha
                     }
                 <Box sx={{
-                    border: '1px solid white', borderRadius: '50%', mr: 1, display: 'flex',
+                    border: '1px solid white', borderRadius: '50%', mr: 1.5, display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: 35, 
-                    height: 35,
+                    width: '2.75vw',
+                    height: '2.75vw', 
+                    '@media (max-width: 768px)': {
+                        width: '2vw', 
+                        height: '2vw',
+                        mr: '1vw',
+                    },
+                    '@media (max-width: 480px)': {
+                        width: '2vw', 
+                        height: '2vw',
+                        mr: '0.5vw', 
+                    },
                 }}>
-                    <ReplayIcon sx={{my:0}}/>
+                    <ReplayIcon sx={{
+                        my:0,
+                        fontSize: 'calc(4px + 2vw)', 
+                        '@media (max-width: 768px)': {
+                            fontSize: 'calc(1px + 2vw)', 
+                        },
+                        '@media (max-width: 480px)': {
+                            fontSize: 'calc(1px + 1vw)',
+                        },
+                        }}/>
                 </Box>
                 <Box sx={{
-                    backgroundColor: 'rgba(112,109,80,0.5)',
-                    borderLeft: '3px solid white'
+                    backgroundColor: 'rgba(20,20,20,0.5)',
+                    borderLeft: '2px solid white',
+                    width: 'auto',
+                    height: 'auto',
+                    alignContent: 'center',
                 }}>
-                    <Box sx={{ mr: 6, my: 1, ml: 1 }}>16+</Box>
+                    <Box sx={{ mr: '4vw',  ml: '1vw',
+                        '@media (max-width: 768px)': {
+                            my: '0vh',
+                            p: 0,
+                            fontSize: 'calc(4px + 1vw)',
+                        },
+                     }}>16+</Box>
 
                 </Box>
             </Box>

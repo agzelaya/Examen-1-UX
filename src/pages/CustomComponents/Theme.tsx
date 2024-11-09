@@ -12,15 +12,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: '"Roboto", "Arial", sans-serif',
-    h1: {
-      fontFamily: '"Roboto", "Arial", sans-serif',
-    },
-    h2: {
-      fontFamily: '"Roboto", "Arial", sans-serif',
-    },
-    h6: {
-      fontFamily: '"Roboto", "Arial", sans-serif',
-    },
+    
 
   },
 
