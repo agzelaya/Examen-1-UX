@@ -3,6 +3,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import CardNetflix from './CardNetflix';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useState, useRef } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { Button, Card, IconButton, snackbarClasses } from '@mui/material';
@@ -39,6 +40,9 @@ const handleScrollLeft = (distance: number, sName:string) => {
 
 
 const SeriesScrollable = ({ title,sName }: SectionInfo) => {
+  
+  
+  
   return (
     //Cuerpo completo del Carousel
     <Box sx={{
@@ -85,6 +89,10 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
         <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
         <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
         <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
+        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
+        <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
+        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
+        
 
         </Box>
         <Button
@@ -94,9 +102,10 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
           bgcolor: 'rgba(0, 0, 0, 0.4)',
           position: 'absolute',
           top: '19%',
-          right: '0%',
+          right: '-1.25%',
           height: '80%',
           maxHeight: '192px',
+          zIndex: 5,
           '&:hover': {
             bgcolor: 'rgba(0, 0, 0, 0.6)',
           },
@@ -121,6 +130,7 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
           left: '0%',
           height: '80%',
           maxHeight: '192px',
+          zIndex: 5,
           '&:hover': {
             bgcolor: 'rgba(0, 0, 0, 0.6)',
           },

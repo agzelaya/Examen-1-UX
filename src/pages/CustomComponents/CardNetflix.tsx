@@ -26,7 +26,9 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
             bottom: 195,
             margin :'3px',
             minWidth: 300,
-            background: 'linear-gradient(to left, transparent, rgba(0, 0, 0, 1))',
+            
+            
+
             
         }}>
             <CardMedia
