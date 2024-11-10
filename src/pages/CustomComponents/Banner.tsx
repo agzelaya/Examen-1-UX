@@ -6,11 +6,13 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ReplayIcon from '@mui/icons-material/Replay';
 import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
 import { AutocompleteClasses } from '@mui/material';
+import CardNetflix from './CardNetflix';
 
 interface BannerInfo{
     mainImg: string;
     logo: string;
     description: string;
+    
 }
 
 const Banner =({mainImg, logo, description}:BannerInfo) => {
@@ -185,10 +187,12 @@ const Banner =({mainImg, logo, description}:BannerInfo) => {
                             p: 0,
                             fontSize: 'calc(4px + 1vw)',
                         },
-                     }}>16+</Box>
-
+                     }}>16+
+                    </Box>
                 </Box>
             </Box>
+            
+            
             
         </Box>
 

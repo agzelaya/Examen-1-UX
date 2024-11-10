@@ -62,8 +62,9 @@ function ResponsiveAppBar() {
       boxShadow:'none', zIndex: 100, 
       width: '100%',
       left:0, right:0
+      
     }}>
-      <Container maxWidth="xl" sx={{background: scrolled?'#141414':'transparent',transition: 'background-color 0.5s ease-in-out', width:'100%', left:0, right:0}}>
+      <Container maxWidth= {false} sx={{background: scrolled?'#141414':'transparent',transition: 'background-color 0.5s ease-in-out', width:'100%', left:0, right:0}}>
         <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {
             <Box sx={{ display: 'flex', alignItems: 'center', mr: 2,
