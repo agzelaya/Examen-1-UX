@@ -49,7 +49,7 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
       justifyContent: 'center', 
       alignItems: 'flex-start',
       bottom: 300,
-      
+      margin: "20px"
     }}> 
       <Box sx = {{
         

@@ -42,6 +42,8 @@ export default function Home() {
         description="In a bet to prove whether ghosts or aliens exist, two high schoolers face terrifying paranormal threats, gain superpowers and maybe even fall in love?!"
       ></Banner>
       <SeriesScrollable title="Most Popular" sName="ss1"></SeriesScrollable>
+      <SeriesScrollable title="Most Popular" sName="ss2"></SeriesScrollable>
+      <SeriesScrollable title="Most Popular" sName="ss3"></SeriesScrollable>
       
      
 
