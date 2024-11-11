@@ -32,12 +32,12 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
   return (
     <>
       <Button
-        ref={buttonRef} // Attach the ref to the button
+        ref={buttonRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         sx={{
-          width: { xs: "200px", sm: "260px", md: "340px" },
-          height: { xs: "100px", sm: "150px", md: "192px" }, // Responsive height
+          width: { xs: "300px", sm: "260px", md: "340px" },
+          height: { xs: "130px", sm: "150px", md: "192px" }, 
           flexShrink: 0,
           margin: 0,
           position: 'relative',
