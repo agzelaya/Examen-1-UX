@@ -57,7 +57,7 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
       justifyContent: 'center',
       alignItems: 'flex-start',
       bottom: { xs: 100, sm: 200, md: 300 }, // Responsive bottom position
-      margin: "20px",
+      margin: "40px",
       fontSize: { xs: '0.5rem', sm: '1rem', md: '1.2rem' },
       height: { xs: 'auto', md: '300' }, // Adjust as needed
       

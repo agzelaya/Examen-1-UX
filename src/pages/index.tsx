@@ -41,9 +41,11 @@ export default function Home() {
       <Banner mainImg="/dandadanMain.jpg" logo="/dandadanLogo.png"
         description="In a bet to prove whether ghosts or aliens exist, two high schoolers face terrifying paranormal threats, gain superpowers and maybe even fall in love?!"
       ></Banner>
+     <Box>
       <SeriesScrollable title="Most Popular" sName="ss1"></SeriesScrollable>
       <SeriesScrollable title="Most Popular" sName="ss2"></SeriesScrollable>
       <SeriesScrollable title="Most Popular" sName="ss3"></SeriesScrollable>
+     </Box>
       
      
 

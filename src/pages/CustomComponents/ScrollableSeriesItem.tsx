@@ -36,6 +36,7 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         sx={{
+          flexGrow: 1,
           width: '20vw',  // Adjust width based on viewport
           height: 'calc(11vw)',  // Adjust height responsively
           flexShrink: 0,
