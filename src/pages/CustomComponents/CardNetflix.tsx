@@ -13,7 +13,7 @@ interface NCardInfo {
     Age: string;
     Resolution: string;
     audiotype: string;
-    
+
 }
 
 const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardInfo) => {
@@ -40,11 +40,18 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
 
         }}>
             <CardMedia
-                sx={{ height: 140 }}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="green iguana"
+                sx={{height: 140}}
+                component="iframe"
+                height="360"
+                src="https://www.youtube.com/embed/a4na2opArGY?controls=0&modestbranding=1&autoplay=1&loop=1&playlist=a4na2opArGY" // Replace VIDEO_ID with the actual video ID
+                title="Embedded Video"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+                
 
             />
+            
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     Lizard

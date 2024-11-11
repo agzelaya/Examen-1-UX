@@ -14,37 +14,37 @@ interface SectionInfo {
   sName: string;
 }
 
-const handleScrollRight = (distance: number, sName:string) => {
+const handleScrollRight = (distance: number, sName: string) => {
   const scrollContainer = document.getElementById(sName);
   if (scrollContainer) {
     scrollContainer.scrollBy({
-       left: distance, behavior: 'smooth' 
+      left: distance, behavior: 'smooth'
     });
     if (scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth) {
-      scrollContainer.scrollLeft = 0; 
+      scrollContainer.scrollLeft = 0;
     }
   }
 };
 
-const handleScrollLeft = (distance: number, sName:string) => {
+const handleScrollLeft = (distance: number, sName: string) => {
   const scrollContainer = document.getElementById(sName);
   if (scrollContainer) {
     scrollContainer.scrollBy({
-       left: -distance, behavior: 'smooth' 
+      left: -distance, behavior: 'smooth'
     });
     if (scrollContainer.scrollLeft <= 0) {
-      scrollContainer.scrollLeft = scrollContainer.scrollWidth; 
+      scrollContainer.scrollLeft = scrollContainer.scrollWidth;
     }
   }
 };
 
 
-const SeriesScrollable = ({ title,sName }: SectionInfo) => {
+const SeriesScrollable = ({ title, sName }: SectionInfo) => {
   const handleWheel = (event: React.WheelEvent) => {
     event.preventDefault(); // Prevent the default scroll behavior
   };
-  
-  
+
+
   return (
     //Cuerpo completo del Carousel
     <Box sx={{
@@ -52,39 +52,43 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
       overflow: 'visible',
       position: 'relative',
       display: 'flex',
+      maxWidth: { xs: '100%', sm: '95%', md: 'calc(100% - 1vw)' },
       flexDirection: 'column',
-      justifyContent: 'center', 
+      justifyContent: 'center',
       alignItems: 'flex-start',
-      bottom: 300,
-      margin: "20px"
-    }}> 
-      <Box sx = {{
-        
-       
+      bottom: { xs: 100, sm: 200, md: 300 }, // Responsive bottom position
+      margin: "20px",
+      fontSize: { xs: '0.8rem', sm: '1rem', md: '1.2rem' },
+      height: { xs: 'auto', md: '300' }, // Adjust as needed
+      
+      
+    }}>
 
-        
+      <Box sx={{
+
       }}>
         <h1>{title}</h1>
       </Box>
 
 
-      <Box id = {sName} 
-      onWheel={handleWheel}
-      sx ={
-        {
-          position: 'relative',
-          display: 'flex',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          flexDirection:'row',
-          maxWidth: '1980px',
-          '&::-webkit-scrollbar': {
-            display: 'none'
-          },
-          
-          
-        }
-      }>
+      <Box id={sName}
+        onWheel={handleWheel}
+        sx={
+          {
+            position: 'relative',
+            display: 'flex',
+            overflowY: 'hidden',
+            overflowX: 'auto',
+            flexDirection: 'row',
+
+            '&::-webkit-scrollbar': {
+              display: 'none'
+            },
+            width: '100%'
+
+
+          }
+        }>
 
         <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
         <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
@@ -98,19 +102,18 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
         <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
         <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
         <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
-        
 
-        </Box>
-        <Button
+
+      </Box>
+      <Button
         onClick={() => handleScrollRight(400, sName)}
         sx={{
           display: 'flex',
           bgcolor: 'rgba(0, 0, 0, 0.4)',
           position: 'absolute',
-          top: '19%',
-          right: '-1.25%',
+          top: '19.8%',
+          right: '-1.1%',
           height: '80%',
-          maxHeight: '192px',
           zIndex: 65,
           '&:hover': {
             bgcolor: 'rgba(0, 0, 0, 0.6)',
@@ -118,21 +121,22 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
         }}>
         <ArrowForwardIosIcon sx={{
           color: 'white',
-          fontSize: 40,
+          
           md: {
             color: 'white'
           },
+          fontSize: 40
 
 
         }}></ArrowForwardIosIcon></Button>
-        
-        <Button 
-        onClick={() => handleScrollLeft(400,sName)}
+
+      <Button
+        onClick={() => handleScrollLeft(400, sName)}
         sx={{
           display: 'flex',
           bgcolor: 'rgba(0, 0, 0, 0.4)',
           position: 'absolute',
-          top: '19%',
+          top: '19.8%',
           left: '0%',
           height: '80%',
           maxHeight: '192px',
@@ -154,7 +158,7 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
 
     </Box>
 
-  ); 
+  );
 };
 
 export default SeriesScrollable;
