@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState, useRef } from 'react';
-import { Button, Box } from '@mui/material'; // Ensure Box is imported
-import CardNetflix from './CardNetflix'; // Assuming you have CardNetflix component as described earlier
+import { Button, Box } from '@mui/material'; 
+import CardNetflix from './CardNetflix'; 
+import ReactDOM from 'react-dom';
 
 interface SSItemProperties {
   imagenBtn: string;
@@ -16,8 +17,8 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect(); // Get the position of the button
       setPosition({
-        top: rect.top-50, // Y position of the button
-        left: rect.left-50, // X position of the button
+        top: rect.top + window.scrollY, // Adjust for scroll position
+        left: rect.left + window.scrollX, // Adjust for scroll position
       });
     }
     setHovered(true);
@@ -26,6 +27,7 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
   const handleMouseLeave = () => {
     setHovered(false);
   };
+
 
   return (
     <>
@@ -36,33 +38,34 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
         sx={{
           minWidth: "340px",
           margin: '5px',
-          zIndex: 1
+          overflowX: 'hidden',
+          overflowY: 'hidden',
+          position: 'relative',
+          '&::-webkit-scrollbar': {
+            display: 'none'
+          },
         }}
       >
         <img src={imagenBtn} alt="series thumbnail" />
-      </Button>
-
-      {hovered && (
-        <Box
-          sx={{
+        {hovered && 
+        ReactDOM.createPortal(
+          <div
+          style={{
             position: 'absolute',
-            top: position.top,
-            left: position.left,
-            zIndex: 10,
-            transition: 'opacity 0.3s ease', // Smooth transition
-            width: 345, // Width of the card (you can adjust this)
-            height: 500, // Height of the card (you can adjust this)
+            top: `${position.top}px`,
+            left: `${position.left}px`,
+            zIndex: 50, 
+            opacity: hovered ? 1 : 0, 
+            transition: 'opacity 1s ease-in-out',
           }}
         >
-          <CardNetflix
-            mainVideo="/static/images/cards/contemplative-reptile.jpg"
-            EpCount="12"
-            Age="PG-13"
-            Resolution="1080p"
-            audiotype="Stereo"
-          />
-        </Box>
-      )}
+          <CardNetflix mainVideo='' EpCount='' Age='' Resolution='' audiotype='' />
+        </div>
+          ,
+          document.body 
+        )
+      }
+      </Button>
     </>
   );
 };

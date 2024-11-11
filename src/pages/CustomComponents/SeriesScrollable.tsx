@@ -40,13 +40,16 @@ const handleScrollLeft = (distance: number, sName:string) => {
 
 
 const SeriesScrollable = ({ title,sName }: SectionInfo) => {
-  
+  const handleWheel = (event: React.WheelEvent) => {
+    event.preventDefault(); // Prevent the default scroll behavior
+  };
   
   
   return (
     //Cuerpo completo del Carousel
     <Box sx={{
       left: '0%',
+      overflow: 'visible',
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
@@ -65,11 +68,14 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
       </Box>
 
 
-      <Box id = {sName} sx ={
+      <Box id = {sName} 
+      onWheel={handleWheel}
+      sx ={
         {
-          
+          position: 'relative',
           display: 'flex',
           overflowY: 'auto',
+          overflowX: 'hidden',
           flexDirection:'row',
           maxWidth: '1980px',
           '&::-webkit-scrollbar': {
@@ -105,7 +111,7 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
           right: '-1.25%',
           height: '80%',
           maxHeight: '192px',
-          zIndex: 5,
+          zIndex: 65,
           '&:hover': {
             bgcolor: 'rgba(0, 0, 0, 0.6)',
           },
@@ -130,7 +136,7 @@ const SeriesScrollable = ({ title,sName }: SectionInfo) => {
           left: '0%',
           height: '80%',
           maxHeight: '192px',
-          zIndex: 5,
+          zIndex: 65,
           '&:hover': {
             bgcolor: 'rgba(0, 0, 0, 0.6)',
           },
