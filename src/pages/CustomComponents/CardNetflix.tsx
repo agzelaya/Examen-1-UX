@@ -6,6 +6,13 @@ import Typography from '@mui/material/Typography';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
+import { Box } from '@mui/material';
+import PlayCircleFilledWhiteRoundedIcon from '@mui/icons-material/PlayCircleFilledWhiteRounded';
+import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
+import RecommendRoundedIcon from '@mui/icons-material/RecommendRounded';
+import ExpandCircleDownOutlinedIcon from '@mui/icons-material/ExpandCircleDownOutlined';
+import { grey } from '@mui/material/colors';
+
 
 interface NCardInfo {
     mainVideo: string;
@@ -40,7 +47,7 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
 
         }}>
             <CardMedia
-                sx={{height: 140}}
+                sx={{ height: 220 }}
                 component="iframe"
                 height="360"
                 src="https://www.youtube.com/embed/a4na2opArGY?controls=0&modestbranding=1&autoplay=1&loop=1&playlist=a4na2opArGY" // Replace VIDEO_ID with the actual video ID
@@ -48,17 +55,98 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
-                
+
 
             />
-            
+
             <CardContent>
-                
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: '0vh'
+                    }}>
+                    <PlayCircleFilledWhiteRoundedIcon
+                        sx={{
+                            color: grey[300],
+                            fontSize: '8vh'
+                        }}>
+
+                    </PlayCircleFilledWhiteRoundedIcon>
+                    <AddCircleOutlineRoundedIcon
+                        sx={{
+                            color: grey[300],
+                            fontSize: '8vh'
+                        }}>
+
+                    </AddCircleOutlineRoundedIcon>
+                    <RecommendRoundedIcon
+                        sx={{
+                            color: grey[300],
+                            fontSize: '8vh'
+                        }}>
+
+                    </RecommendRoundedIcon>
+                    <ExpandCircleDownOutlinedIcon
+                        sx={{
+                            color: grey[300],
+                            fontSize: '8vh',
+                            position: 'absolute',
+                            right: '5%',
+                        }}>
+
+                    </ExpandCircleDownOutlinedIcon>
+
+
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                    }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            margin: '10px',
+                            border: '1px solid',
+                            borderColor: grey[500],
+                            color: grey[500],
+                            padding: '2px 6px',  
+                            borderRadius: '2px'
+
+                        }}>
+                        16+
+                    </Box>
+                    <Box
+                        sx={{
+                            color: 'grey',
+                            margin: '12px',
+                            marginLeft: '0',
+                            marginRight: '10px'
+                        }}>
+                        6 Episodes
+                    </Box>
+                    <Box
+                        sx={{
+                            color: grey[400],
+                            display: 'flex',
+                            flexDirection: 'row',
+                            margin: '12px',
+                            marginLeft: 0,
+                            border: '1px solid',
+                            borderColor: grey[500],
+                            padding: '1px 6px',  
+                            borderRadius: '2px',
+                            fontSize: '1.3vh',
+                            height: '2.2vh'
+                        }}>
+                        HD
+                    </Box>
+                </Box>
+
             </CardContent>
-            <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-            </CardActions>
+
         </Card>
     );
 };
