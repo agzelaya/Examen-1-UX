@@ -36,17 +36,28 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         sx={{
-          width: { xs: "300px", sm: "260px", md: "340px" },
-          height: { xs: "130px", sm: "150px", md: "192px" }, 
+          width: '20vw',  // Adjust width based on viewport
+          height: 'calc(11vw)',  // Adjust height responsively
           flexShrink: 0,
-          margin: 0,
+          margin: '-3px',
+          overflow: 'hidden',
           position: 'relative',
-          '&::-webkit-scrollbar': {
-            display: 'none',
+          '& img': {
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          },
+          '@media (max-width: 768px)': {
+            width: '25vw',
+            height: 'calc(12vh)',
+          },
+          '@media (max-width: 480px)': {
+            width: '30vw',
+            height: 'calc(15vw)',
           },
         }}
       >
-        <img src={imagenBtn} alt="series thumbnail"  style={{ width: "100%", height: "100%", objectFit: 'cover' }}/>
+        <img src={imagenBtn} alt="series thumbnail" />
         {hovered && 
         ReactDOM.createPortal(
           <div
