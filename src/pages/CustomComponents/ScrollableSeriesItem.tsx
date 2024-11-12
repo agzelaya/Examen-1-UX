@@ -43,8 +43,10 @@ const ScrollableSeriesItem = ({ imagenBtn, mainVideo, EpCount, Age, g1, g2, g3 }
         onMouseLeave={handleMouseLeave}
         sx={{
           flexGrow: 1,
-          width: '20vw',  // Adjust width based on viewport
-          height: 'calc(11vw)',  // Adjust height responsively
+          width: '20vw', 
+          height: 'calc(11vw)', 
+          maxWidth: '360px',
+          maxHeight: '195px',
           flexShrink: 0,
           margin: '-3px',
           overflow: 'hidden',
