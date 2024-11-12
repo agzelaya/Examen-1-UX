@@ -11,7 +11,7 @@ const theme = createTheme({
       },
   },
   typography: {
-    fontFamily: '"Roboto", "Arial", sans-serif',
+    fontFamily: '"Netflix Sans", "Arial", sans-serif',
     
 
   },

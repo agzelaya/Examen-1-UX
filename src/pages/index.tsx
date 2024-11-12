@@ -12,16 +12,6 @@ import KWScroll from "./CustomComponents/KWScroll";
 import  {useState, useEffect} from "react"
 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 interface Series {
   imagenBtn: string;
@@ -454,6 +444,10 @@ const [series4, setSeries4] = useState<Series[]>([
       <SeriesScrollable title="Today's Picks for You" sName="ss3" series={series3} setSeries={setSeries3}></SeriesScrollable>
       <SeriesScrollable title="Crowd Pleasers" sName="ss4" series={series4} setSeries={setSeries4}></SeriesScrollable> 
      </Box>
+
+      <footer>
+        <Box sx={{m:1 , color: 'grey'}}>&copy; 1997-2024 Netflix, Inc.</Box>
+      </footer>
     </>
   );
 }
