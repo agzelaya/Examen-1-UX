@@ -51,10 +51,12 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
           '@media (max-width: 768px)': {
             width: '25vw',
             height: 'calc(12vh)',
+            objectFit: 'cover',
           },
           '@media (max-width: 480px)': {
             width: '30vw',
             height: 'calc(15vw)',
+            objectFit: 'cover',
           },
         }}
       >

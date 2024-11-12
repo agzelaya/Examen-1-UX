@@ -56,9 +56,9 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'flex-start',
-      bottom: { xs: 100, sm: 200, md: 300 }, // Responsive bottom position
+      bottom: { xs: 150, sm: 250, md: 400  , lg: 450}, // Responsive bottom position
       margin: "40px",
-      fontSize: { xs: '0.5rem', sm: '1rem', md: '1.2rem' },
+      fontSize: { xs: '0.5rem', sm: '1rem', md: '1.1rem' },
       height: { xs: 'auto', md: '300' }, // Adjust as needed
       
       
@@ -111,7 +111,7 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
           display: 'flex',
           bgcolor: 'rgba(0, 0, 0, 0.2)',
           position: 'absolute',
-          top: '19.8%',
+          top: '19%',
           right: '0%',
           height: '80%',
           zIndex: 65,
@@ -135,10 +135,10 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
           display: 'flex',
           bgcolor: 'rgba(0, 0, 0, 0.4)',
           position: 'absolute',
-          top: '19.8%',
+          top: '17.9%',
           left: '0%',
-          height: 'calc(80%)',
-          maxHeight: '192px',
+          height: '90%',
+          maxHeight: '194px',
           zIndex: 65,
           '&:hover': {
             bgcolor: 'rgba(0, 0, 0, 0.6)',
