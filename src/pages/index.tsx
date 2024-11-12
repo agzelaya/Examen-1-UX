@@ -150,7 +150,7 @@ export default function Home() {
     },
     {
       imagenBtn: "/death-note.jpeg",
-      mainVideo: "NlJZ-YgAt-c",
+      mainVideo: "kNyR46eHDxE",
       EpCount: "37",
       Age: "16",
       g1: "Mystery",
@@ -287,7 +287,7 @@ const [series3, setSeries3] = useState<Series[]>([
     g3: "Shonen"
   },
   {
-    imagenBtn: "/better-call-saul.jpeg",
+    imagenBtn: "/better-call-sauljpeg.jpeg",
     mainVideo: "HN4oydykJFc",
     EpCount: "63",
     Age: "18",
@@ -362,7 +362,7 @@ const [series4, setSeries4] = useState<Series[]>([
       g3: "Drama"
     },
     {
-      imagenBtn: "/the-boy-and-the-heron.jpeg",
+      imagenBtn: "/the-boy-and-the-heronjpeg.jpeg",
       mainVideo: "yncJ5HKs93o",
       EpCount: "1",
       Age: "10",
