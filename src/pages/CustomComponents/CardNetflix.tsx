@@ -144,6 +144,56 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                         HD
                     </Box>
                 </Box>
+                <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    marginTop: '10px',
+                }}>
+                    <Typography 
+                    sx={{
+                        color: 'white', 
+                    }}>
+                        Supense
+                    </Typography>
+                    
+
+                    <Typography
+                    sx={{
+                        color: grey[600],
+                        marginLeft: '10px',
+                        marginRight: '10px'
+                    }}>
+                        ●
+                    </Typography>
+
+
+                    <Typography 
+                    sx={{
+                        color: 'white' ,
+                    }}>
+                        RomCom
+                    </Typography>
+                    
+                    
+                    <Typography
+                    sx={{
+                        color: grey[600],
+                        marginLeft: '10px',
+                        marginRight: '10px'
+                    }}>
+                        ●
+                    </Typography>
+                    
+                    
+                    <Typography 
+                    sx={{
+                        color: 'white' ,
+                    }}>
+                        Shonen 
+                    </Typography>
+
+                </Box>
 
             </CardContent>
 

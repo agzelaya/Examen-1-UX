@@ -43,7 +43,7 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
   const handleWheel = (event: React.WheelEvent) => {
     event.preventDefault(); // Prevent the default scroll behavior
   };
-
+  
 
   return (
     //Cuerpo completo del Carousel
@@ -65,7 +65,7 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
     }}>
 
       <Box sx={{
-
+          
       }}>
         <h1>{title}</h1>
       </Box>
@@ -109,7 +109,7 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
         onClick={() => handleScrollRight(400, sName)}
         sx={{
           display: 'flex',
-          bgcolor: 'rgba(0, 0, 0, 0.4)',
+          bgcolor: 'rgba(0, 0, 0, 0.2)',
           position: 'absolute',
           top: '19.8%',
           right: '0%',
@@ -121,11 +121,10 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
         }}>
         <ArrowForwardIosIcon sx={{
           color: 'white',
-          
           md: {
             color: 'white'
           },
-          fontSize: 40
+          fontSize: 'calc(40px + 1vh)'
 
 
         }}></ArrowForwardIosIcon></Button>
@@ -138,16 +137,17 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
           position: 'absolute',
           top: '19.8%',
           left: '0%',
-          height: '80%',
+          height: 'calc(80%)',
           maxHeight: '192px',
           zIndex: 65,
           '&:hover': {
             bgcolor: 'rgba(0, 0, 0, 0.6)',
           },
         }}>
+          
         <ArrowBackIosIcon sx={{
           color: 'white',
-          fontSize: 40,
+          fontSize: 'calc(40px + 1vh)',
           md: {
             color: 'white'
           },
