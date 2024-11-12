@@ -7,12 +7,29 @@ import { useState, useRef } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { Button, Card, IconButton, snackbarClasses } from '@mui/material';
-
 import ScrollableSeriesItem from './ScrollableSeriesItem';
+
 interface SectionInfo {
   title: string;
   sName: string;
 }
+
+interface Series {
+  imagenBtn: string;
+  mainVideo: string;
+  EpCount: string;
+  Age: string;
+  g1: string;
+  g2?: string;
+  g3?: string;
+}
+
+interface SeriesListProps {
+  series: Series[];
+  setSeries: React.Dispatch<React.SetStateAction<Series[]>>;
+}
+
+
 
 const handleScrollRight = (distance: number, sName: string) => {
   const scrollContainer = document.getElementById(sName);
@@ -39,7 +56,7 @@ const handleScrollLeft = (distance: number, sName: string) => {
 };
 
 
-const SeriesScrollable = ({ title, sName }: SectionInfo) => {
+const SeriesScrollable = ({ title, sName, series, setSeries }: SectionInfo & SeriesListProps) => {
   const handleWheel = (event: React.WheelEvent) => {
     event.preventDefault(); // Prevent the default scroll behavior
   };
@@ -90,18 +107,18 @@ const SeriesScrollable = ({ title, sName }: SectionInfo) => {
           }
         }>
 
-        <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/DandadanCardBtn.png'></ScrollableSeriesItem>
-        <ScrollableSeriesItem imagenBtn='/ArcaneS2SSCITEM.jpg'></ScrollableSeriesItem>
+        {series.map((serie, index) => (
+          <ScrollableSeriesItem
+            key={index}
+            imagenBtn={serie.imagenBtn}
+            mainVideo={serie.mainVideo}
+            EpCount={serie.EpCount}
+            Age={serie.Age}
+            g1={serie.g1}
+            g2={serie.g2}
+            g3={serie.g3}
+          />
+        ))}
 
 
       </Box>

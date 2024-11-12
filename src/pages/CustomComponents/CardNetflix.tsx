@@ -18,12 +18,12 @@ interface NCardInfo {
     mainVideo: string;
     EpCount: string;
     Age: string;
-    Resolution: string;
-    audiotype: string;
-
+    g1: string;
+    g2?: string;
+    g3?: string;
 }
 
-const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardInfo) => {
+const CardNetflix = ({ mainVideo, EpCount, Age, g1, g2, g3 }: NCardInfo) => {
 
     const [fadeIn, setFadeIn] = useState(false); // State to control fade-in effect
 
@@ -50,7 +50,7 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                 sx={{ height: 220 }}
                 component="iframe"
                 height="360"
-                src="https://www.youtube.com/embed/a4na2opArGY?controls=0&modestbranding=1&autoplay=1&loop=1&playlist=a4na2opArGY" // Replace VIDEO_ID with the actual video ID
+                src={`https://www.youtube.com/embed/${mainVideo}?controls=0&modestbranding=1&autoplay=1&loop=1&playlist=${mainVideo}`} // Replace VIDEO_ID with the actual video ID
                 title="Embedded Video"
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
@@ -116,7 +116,7 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                             borderRadius: '2px'
 
                         }}>
-                        16+
+                        {Age}+
                     </Box>
                     <Box
                         sx={{
@@ -125,7 +125,7 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                             marginLeft: '0',
                             marginRight: '10px'
                         }}>
-                        6 Episodes
+                        {EpCount} Episodes
                     </Box>
                     <Box
                         sx={{
@@ -154,7 +154,7 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                     sx={{
                         color: 'white', 
                     }}>
-                        Supense
+                        {g1}
                     </Typography>
                     
 
@@ -172,7 +172,7 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                     sx={{
                         color: 'white' ,
                     }}>
-                        RomCom
+                        {g2}
                     </Typography>
                     
                     
@@ -190,7 +190,7 @@ const CardNetflix = ({ mainVideo, EpCount, Age, Resolution, audiotype }: NCardIn
                     sx={{
                         color: 'white' ,
                     }}>
-                        Shonen 
+                        {g3}
                     </Typography>
 
                 </Box>

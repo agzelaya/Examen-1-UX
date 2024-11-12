@@ -4,11 +4,17 @@ import { Button, Box } from '@mui/material';
 import CardNetflix from './CardNetflix'; 
 import ReactDOM from 'react-dom';
 
-interface SSItemProperties {
+interface Series {
   imagenBtn: string;
+  mainVideo: string;
+  EpCount: string;
+  Age: string;
+  g1: string;
+  g2?: string;
+  g3?: string;
 }
 
-const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
+const ScrollableSeriesItem = ({ imagenBtn, mainVideo, EpCount, Age, g1, g2, g3 }: Series) => {
   const [hovered, setHovered] = useState(false);
   const [position, setPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
   const buttonRef = useRef<HTMLButtonElement | null>(null); // Ref to the button element
@@ -73,7 +79,8 @@ const ScrollableSeriesItem = ({ imagenBtn }: SSItemProperties) => {
             transition: 'opacity 1s ease-in-out',
           }}
         >
-          <CardNetflix mainVideo='' EpCount='' Age='' Resolution='' audiotype='' />
+          <CardNetflix mainVideo={mainVideo} EpCount={EpCount} Age={Age} g1={g1} g2={g2} g3={g3} />
+
         </div>
           ,
           document.body 
